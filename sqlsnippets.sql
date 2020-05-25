@@ -24,27 +24,3 @@ CREATE TABLE `dispatched` (`draft number` BIGINT,
 `assignee`  CHAR(10), FOREIGN KEY (`assignee`) REFERENCES `people`(`nationalidno`),
 `draft date` INT(8), FOREIGN KEY (`draft date`) REFERENCES `calendar days`(`concat`),
 `form` BIGINT PRIMARY KEY, FOREIGN KEY (`form`) REFERENCES `forms`(`no`));
-
-INSERT INTO `people` (`nationalidno`, `firstname`, `surname`) VALUES ('4569519059', 'شاهد', 'وهابی');
-INSERT INTO `calendar days` (`concat`, `y`, `m`, `d`) VALUES (20200214, 2020, 2, 14);
-INSERT INTO `calendar days` (`concat`, `y`, `m`, `d`) VALUES (13981125, 1398, 11, 25);
-INSERT INTO `carplates` (`concat`, `statecode`, `serial`, `areacode`, `random`) VALUES (
-'1148ی324',
- 11, 48, 'ی', '324');
-INSERT INTO `forms` (`no`, `comments`, `paper number`, `part number`, `submitted`, `client`, `date`, `truck number`) VALUES (12345,
- 'سلامی چو بوی خوش آشنایی' ,
-2443, 345, '"object" = {"hello": "world"}', 4569519059, 20200214, '1148ی324');
-INSERT INTO `goods` (`description`, `qty`, `unit`, `gweight` , `pweight`, `nweight`, `form`) VALUES(
-'خامه',
-10, 'کارتن', 
-12.30, 696968.456, 23.4565, 12345);
-INSERT INTO `goods` (`description`, `qty`, `unit`, `gweight` , `pweight`, `nweight`, `form`) VALUES(
-'بستنی',
-10, 'کارتن', 
-12.30, 69668.454, 23.451265, 12345);
-INSERT INTO `received` (`origin`, `bill of lading number`, `representative`,`form`) VALUES (
-'سمنان', 
-'GE-ف-123',
- 4569519059
-,12345);
-INSERT INTO `dispatched` (`draft number`, `beneficiary`, `assignee`, `draft date`, `form`) VALUES (4472485, 4569519059, 4569519059, 13981125, 12345);
