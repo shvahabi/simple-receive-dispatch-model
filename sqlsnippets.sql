@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS `people` (`nationalidno` CHAR(10) PRIMARY KEY, `first
 CREATE TABLE IF NOT EXISTS `calendar days` (`concat` INT(8) PRIMARY KEY, `y` SMALLINT(4), `m` TINYINT(2), `d` TINYINT(2),
 CHECK (`d` <= 31), CHECK (`m` <= 12), CHECK (`y` >= 1350));
 
-CREATE TABLE IF NOT EXISTS `carplates` (`concat` CHAR(8) PRIMARY KEY, `statecode` CHAR(2), `serial` CHAR(2), `areacode` CHAR(1), `random` CHAR(3));
+CREATE TABLE IF NOT EXISTS `carplates` (`concat` CHAR(10) PRIMARY KEY, `statecode` CHAR(2), `serial` CHAR(2), `areacode` CHAR(3), `random` CHAR(3));
 
 CREATE TABLE IF NOT EXISTS `forms` (`no` BIGINT PRIMARY KEY,`comments` VARCHAR_IGNORECASE, `paper number` SMALLINT, `part number` SMALLINT, `submitted` VARCHAR_IGNORECASE,
 `client` CHAR(10), FOREIGN KEY (`client`) REFERENCES `people`(`nationalidno`),
