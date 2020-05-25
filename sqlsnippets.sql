@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `received` (`origin` VARCHAR_IGNORECASE, `bill of lad
 `representative` CHAR(10), FOREIGN KEY (`representative`) REFERENCES `people`(`nationalidno`),
 `form` BIGINT  PRIMARY KEY, FOREIGN KEY (`form`) REFERENCES `forms`(`no`));
 
-CREATE TABLE IF NOT EXISTS `dispatched` (`draft number` BIGINT,
+CREATE TABLE IF NOT EXISTS `dispatched` (`draft number` VARCHAR_IGNORECASE,
 `beneficiary` CHAR(10), FOREIGN KEY (`beneficiary`) REFERENCES `people`(`nationalidno`),
 `assignee`  CHAR(10), FOREIGN KEY (`assignee`) REFERENCES `people`(`nationalidno`),
 `draft date` INT(8), FOREIGN KEY (`draft date`) REFERENCES `calendar days`(`concat`),
