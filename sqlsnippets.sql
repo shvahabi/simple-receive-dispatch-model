@@ -25,6 +25,9 @@ CREATE TABLE IF NOT EXISTS `dispatched` (`draft number` VARCHAR_IGNORECASE,
 `draft date` INT(8), FOREIGN KEY (`draft date`) REFERENCES `calendar days`(`concat`),
 `form` BIGINT PRIMARY KEY, FOREIGN KEY (`form`) REFERENCES `forms`(`no`) ON DELETE CASCADE);
 
+CREATE TABLE IF NOT EXISTS currentform (`no` BIGINT);
+INSERT INTO `currentform` (no) VALUES (0);
+
 CREATE VIEW IF NOT EXISTS receivedreport AS
 SELECT forms.no, forms.`date`, forms.client, forms.`paper number`, goods.qty, goods.unit, goods.description, goods.gweight, goods.pweight, goods.nweight
 FROM (((forms JOIN goods ON forms.no = goods.form)
